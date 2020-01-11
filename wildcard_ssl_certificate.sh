@@ -3,9 +3,9 @@
 DOMAIN=$1
 
 if [ -z "$DOMAIN" ]; then
-  echo -n 'Enter root domain (no www): '
+  echo -n 'Enter root domain (no www) [example.com]: '
   read input_d
-  DOMAIN=$input_d
+  DOMAIN=${input_d:-example.com}
 fi
 
 [ -d certs ] || mkdir certs
