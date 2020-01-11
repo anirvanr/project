@@ -7,9 +7,9 @@ yum -y install curl wget
 java -version
 if [ $? -ne 0 ]
     then
-        #Installing Java 8 if it's not installed
+        #Installing Java if it's not installed
         sudo yum install jre-1.8.0-openjdk -y
-        # Checking if java installed is less than version 7. If yes, installing Java 8. As logstash & Elasticsearch require Java 7 or later.
+        # Checking if java installed is less than version 7. If yes, installing Java 8. As Elasticsearch require Java 7 or later.
     elif [ "`java -version 2> /tmp/version && awk '/version/ { gsub(/"/, "", $NF); print ( $NF < 1.8 ) ? "YES" : "NO" }' /tmp/version`" == "YES" ]
         then
             sudo yum install jre-1.8.0-openjdk -y
